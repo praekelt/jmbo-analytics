@@ -1,17 +1,33 @@
 from setuptools import setup, find_packages
 
+
 setup(
-    name='panomena-analytics',
-    description='Panomena Analytics',
+    name='jmbo-analytics',
     version='0.0.3',
-    author='',
-    license='Proprietory',
-    url='http://www.unomena.com/',
-    packages = find_packages('src'),
-    package_dir = {'': 'src'},
-    dependency_links = [
-    ],
+    description='Jmbo analytics app.',
+    long_description = open('README.rst', 'r').read() + open('AUTHORS.rst', 'r').read() + open('CHANGELOG.rst', 'r').read(),
+    author='Praekelt Foundation',
+    author_email='dev@praekelt.com',
+    license='BSD',
+    url='http://github.com/praekelt/jmbo-analytics',
+    packages = find_packages(),
     install_requires = [
-        'Django',
+        'jmbo',
+        'django-analytics',
     ],
+    include_package_data=True,
+    tests_require=[
+        'django-setuptest',
+    ],
+    test_suite="setuptest.SetupTestSuite",
+    classifiers=[
+        "Programming Language :: Python",
+        "License :: OSI Approved :: BSD License",
+        "Development Status :: 4 - Beta",
+        "Operating System :: OS Independent",
+        "Framework :: Django",
+        "Intended Audience :: Developers",
+        "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    ],
+    zip_safe=False,
 )

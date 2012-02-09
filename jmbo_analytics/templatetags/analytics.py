@@ -4,9 +4,7 @@ import urlparse
 from django import template
 from django.core.urlresolvers import reverse
 
-from panomena_general.exceptions import RequestContextRequiredException
-
-from panomena_analytics import CAMPAIGN_TRACKING_PARAMS
+from jmbo_analytics import CAMPAIGN_TRACKING_PARAMS
 
 
 register = template.Library()
@@ -25,7 +23,7 @@ class GANode(template.Node):
         # attempt get the request from the context
         request = context.get('request', None)
         if request is None:
-            raise RequestContextRequiredException()
+            raise RuntimeError("Request context required")
         # intialise the parameters collection
         params = {}
         # collect the campaign tracking parameters from the request

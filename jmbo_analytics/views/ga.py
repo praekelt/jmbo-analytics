@@ -12,7 +12,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.cache import never_cache
 
-from panomena_analytics import CAMPAIGN_TRACKING_PARAMS
+from jmbo_analytics import CAMPAIGN_TRACKING_PARAMS
 
 
 VERSION = '4.4sh'
