@@ -77,12 +77,12 @@ def gen_utma(domain_name):
     return _utma
 
 
-def ga_request(request, response, path=None, event=None):
+def google_analytics_request(request, response, path=None, event=None):
     """Sends a request to google analytics."""
     meta = request.META
     time_tup = time.localtime(time.time() + COOKIE_USER_PERSISTENCE)
     # get the account id
-    try: account = settings.GOOGLE_ANALYTICS_ID     
+    try: account = settings.JMBO_ANALYTICS['google_analytics_id']
     except: raise Exception, "No Google Analytics ID configured"
     # determine the domian
     domain = meta.get('HTTP_HOST', '')
@@ -159,11 +159,11 @@ def ga_request(request, response, path=None, event=None):
 
 
 @never_cache
-def ga(request):
+def google_analytics(request):
     """Image that sends data to Google Analytics."""
     event = request.GET.get('event', None)
     if event: event = event.split(',')
     response = HttpResponse('', 'image/gif', 200)
     response.write(GIF_DATA)
-    return ga_request(request, response, event=event)
+    return google_analytics_request(request, response, event=event)
 

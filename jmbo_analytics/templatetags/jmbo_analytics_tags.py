@@ -10,7 +10,7 @@ from jmbo_analytics import CAMPAIGN_TRACKING_PARAMS
 register = template.Library()
 
 
-class GANode(template.Node):
+class GoogleAnalyticsNode(template.Node):
     """Tag node for building the link to the internal google analytics
     image.
     
@@ -45,15 +45,15 @@ class GANode(template.Node):
         # append the debug parameter if requested
         if self.debug: params['utmdebug'] = 1
         # build and return the url
-        url = reverse('ga')
+        url = reverse('google-analytics')
         if len(params) > 0:
             url += '?' + urllib.urlencode(params)
         return url
 
 
 @register.tag
-def ga(parser, token):
-    """Parser method that build a GANode for rendering."""
+def google_analytics(parser, token):
+    """Parser method that build a GoogleAnalyticsNode for rendering."""
     bits = token.split_contents()
     # collect parameters if available
     debug = 'False'
@@ -61,4 +61,4 @@ def ga(parser, token):
     if len(debug) > 0:
         debug = (debug[0].lower() == 't')
     # build and return the node
-    return GANode(debug)
+    return GoogleAnalyticsNode(debug)
