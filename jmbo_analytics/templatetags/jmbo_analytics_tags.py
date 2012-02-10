@@ -3,6 +3,7 @@ import urlparse
 
 from django import template
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 from jmbo_analytics import CAMPAIGN_TRACKING_PARAMS
 
@@ -20,6 +21,12 @@ class GoogleAnalyticsNode(template.Node):
         self.debug = debug
 
     def render(self, context):
+        # Trivial case
+        try:
+            assert settings.JMBO_ANALYTICS['google_analytics_id']
+        except:
+            return ''
+
         # attempt get the request from the context
         request = context.get('request', None)
         if request is None:
