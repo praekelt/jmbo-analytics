@@ -12,6 +12,7 @@ setup(
     url='http://github.com/praekelt/jmbo-analytics',
     packages = find_packages(),
     install_requires = [
+        'httplib2',
         'jmbo',
         'django-analytics',
     ],
