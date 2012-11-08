@@ -6,7 +6,7 @@ import struct
 from django.http import HttpResponse
 from django.views.decorators.cache import never_cache
 
-from jmboanalytics.utils import build_ga_params
+from jmbo_analytics.utils import build_ga_params
 
 
 GIF_DATA = reduce(lambda x, y: x + struct.pack('B', y),
