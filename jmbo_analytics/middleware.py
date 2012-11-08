@@ -1,5 +1,5 @@
-from jmboanalytics.utils import build_ga_params
-from jmboanalytics.tasks import send_ga_tracking
+from jmbo_analytics.utils import build_ga_params
+from jmbo_analytics.tasks import send_ga_tracking
 
 
 class GoogleAnalyticsMiddleware(object):
