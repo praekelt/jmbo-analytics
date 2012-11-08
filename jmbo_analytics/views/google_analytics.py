@@ -30,7 +30,7 @@ def get_ip(remote_address):
 
 
 def google_analytics_request(request, response, path=None, event=None):
-    params = build_ga_params(request)
+    params = build_ga_params(request, event=event)
 
     COOKIE_USER_PERSISTENCE = params.get('COOKIE_USER_PERSISTENCE')
     COOKIE_NAME = params.get('COOKIE_NAME')
