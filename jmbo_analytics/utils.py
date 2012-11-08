@@ -121,7 +121,7 @@ def build_ga_params(request, path=None, event=None, referer=None):
         utm_url += '&utmt=event' + \
             '&utme=5(%s)' % '*'.join(event)
 
-    return {'url': utm_url,
+    return {'utm_url': utm_url,
             'user_agent': user_agent,
             'language': meta.get('HTTP_ACCEPT_LANGUAGE', ''),
             'visitor_id': visitor_id,
