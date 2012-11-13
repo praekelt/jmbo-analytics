@@ -1,5 +1,5 @@
-from jmbo_analytics.utils import build_ga_params
-from jmbo_analytics.tasks import send_ga_tracking, set_cookie
+from jmbo_analytics.utils import build_ga_params, set_cookie
+from jmbo_analytics.tasks import send_ga_tracking
 from django.conf import settings
 
 
