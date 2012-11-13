@@ -9,7 +9,7 @@ class GoogleAnalyticsMiddleware(object):
             exclude = [p for p in settings.GOOGLE_ANALYTICS_IGNORE_PATH\
                         if request.path.startswith(p)]
             if any(exclude):
-                return
+                return response
 
         path = request.path
         referer = request.META.get('HTTP_REFERER', '')
