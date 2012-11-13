@@ -52,6 +52,24 @@ def gen_utma(domain_name):
     return _utma
 
 
+def set_cookie(params, response):
+    COOKIE_USER_PERSISTENCE = params.get('COOKIE_USER_PERSISTENCE')
+    COOKIE_NAME = params.get('COOKIE_NAME')
+    COOKIE_PATH = params.get('COOKIE_PATH')
+    visitor_id = params.get('visitor_id')
+
+    time_tup = time.localtime(time.time() + COOKIE_USER_PERSISTENCE)
+
+    # always try and add the cookie to the response
+    response.set_cookie(
+        COOKIE_NAME,
+        value=visitor_id,
+        expires=time.strftime('%a, %d-%b-%Y %H:%M:%S %Z', time_tup),
+        path=COOKIE_PATH,
+    )
+    return response
+
+
 def build_ga_params(request, path=None, event=None, referer=None):
     meta = request.META
 
