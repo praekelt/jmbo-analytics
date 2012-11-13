@@ -14,6 +14,6 @@ class GoogleAnalyticsMiddleware(object):
         path = request.path
         referer = request.META.get('HTTP_REFERER', '')
         params = build_ga_params(request, path=path, referer=referer)
-        set_cookie(params, response)
+        response = set_cookie(params, response)
         send_ga_tracking.delay(params)
         return response
