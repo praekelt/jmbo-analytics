@@ -6,7 +6,7 @@ import struct
 from django.http import HttpResponse
 from django.views.decorators.cache import never_cache
 
-from jmbo_analytics.utils import build_ga_params
+from jmbo_analytics.utils import build_ga_params, set_cookie
 
 
 GIF_DATA = reduce(lambda x, y: x + struct.pack('B', y),
@@ -32,23 +32,11 @@ def get_ip(remote_address):
 def google_analytics_request(request, response, path=None, event=None):
     params = build_ga_params(request, event=event)
 
-    COOKIE_USER_PERSISTENCE = params.get('COOKIE_USER_PERSISTENCE')
-    COOKIE_NAME = params.get('COOKIE_NAME')
-    COOKIE_PATH = params.get('COOKIE_PATH')
+    set_cookie(params, response)
+
     utm_url = params.get('utm_url')
-    visitor_id = params.get('visitor_id')
     user_agent = params.get('user_agent')
     language = params.get('language')
-
-    time_tup = time.localtime(time.time() + COOKIE_USER_PERSISTENCE)
-
-    # always try and add the cookie to the response
-    response.set_cookie(
-        COOKIE_NAME,
-        value=visitor_id,
-        expires=time.strftime('%a, %d-%b-%Y %H:%M:%S %Z', time_tup),
-        path=COOKIE_PATH,
-    )
 
     # send the request
     http = httplib2.Http()
