@@ -35,6 +35,7 @@ def get_visitor_id(guid, account, user_agent, cookie):
 
 
 def gen_utma(domain_name):
+    _utma = ''
     domain_hash = 0
     g = 0
     i = len(domain_name) - 1
