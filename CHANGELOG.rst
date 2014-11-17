@@ -1,6 +1,11 @@
 Changelog
 =========
 
+next
+----
+#. Simplify dependencies.
+#. Make transparent GIF method asynchronous.
+
 0.0.4
 -----
 #. Better packaging.

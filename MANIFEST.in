@@ -4,3 +4,4 @@ include LICENSE
 include README.rst
 recursive-include jmbo_analytics/views *
 recursive-include jmbo_analytics/templatetags *
+recursive-include jmbo_analytics/tests *
