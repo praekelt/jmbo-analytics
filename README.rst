@@ -2,6 +2,10 @@ Jmbo Analytics
 ==============
 **Jmbo analytics brings the power of Google Analytics to your Django projects**
 
+.. figure:: https://travis-ci.org/praekelt/jmbo-analytics.svg?branch=develop
+   :align: center
+   :alt: Travis
+
 .. contents:: Contents
     :depth: 3
 
