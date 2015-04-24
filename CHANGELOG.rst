@@ -1,8 +1,8 @@
 Changelog
 =========
 
-next
-----
+0.1
+---
 #. Simplify dependencies.
 #. Make transparent GIF method asynchronous.
 
