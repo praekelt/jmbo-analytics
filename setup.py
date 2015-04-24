@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='jmbo-analytics',
-    version='0.0.4',
+    version='0.1',
     description='Jmbo analytics app.',
     long_description = open('README.rst', 'r').read() + open('AUTHORS.rst', 'r').read() + open('CHANGELOG.rst', 'r').read(),
     author='Praekelt Foundation',
@@ -12,15 +12,16 @@ setup(
     url='http://github.com/praekelt/jmbo-analytics',
     packages = find_packages(),
     install_requires = [
+        'django<1.7',
+        'django-celery',
         'httplib2',
-        'jmbo',
-        'django-analytics',
     ],
     include_package_data=True,
     tests_require=[
-        'django-setuptest',
+        'django-setuptest>=0.1.4',
+        'psycopg2'
     ],
-    test_suite="setuptest.SetupTestSuite",
+    test_suite="setuptest.setuptest.SetupTestSuite",
     classifiers=[
         "Programming Language :: Python",
         "License :: OSI Approved :: BSD License",
