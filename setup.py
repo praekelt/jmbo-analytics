@@ -12,9 +12,9 @@ setup(
     url='http://github.com/praekelt/jmbo-analytics',
     packages = find_packages(),
     install_requires = [
-        'django<1.7',
+        'django>=1.4,<1.8',
         'django-celery',
-        'httplib2',
+        'requests',
     ],
     include_package_data=True,
     tests_require=[
