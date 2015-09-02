@@ -1,4 +1,4 @@
-import httplib2
+import requests
 from celery.task import task
 
 
@@ -7,16 +7,11 @@ def send_ga_tracking(params):
     utm_url = params.get('utm_url')
     user_agent = params.get('user_agent')
     language = params.get('language')
-
-    # send the request
-    http = httplib2.Http()
+    headers={
+        'User-Agent': user_agent,
+        'Accepts-Language:': language
+    }
     try:
-        resp, content = http.request(
-            utm_url, 'GET',
-            headers={
-                'User-Agent': user_agent,
-                'Accepts-Language:': language
-            }
-        )
-    except httplib2.HttpLib2Error:
-        raise Exception("Error opening: %s" % utm_url)
+        requests.get(utm_url, headers=headers)
+    except requests.HTTPError:
+        pass
