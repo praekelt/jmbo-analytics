@@ -1,8 +1,8 @@
 Changelog
 =========
 
-next
-----
+0.2
+---
 #. Use requests library because it can drill through HTTP proxies.
 
 0.1
