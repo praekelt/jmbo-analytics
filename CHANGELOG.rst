@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.2.1
+-----
+#. Send correctly named header.
+
 0.2
 ---
 #. Use requests library because it can drill through HTTP proxies.
