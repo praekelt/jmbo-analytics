@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.2.2
+-----
+#. Fixed incorrect header key.
+
 0.2.1
 -----
 #. Send correctly named header.
