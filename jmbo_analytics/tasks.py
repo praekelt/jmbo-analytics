@@ -9,7 +9,7 @@ def send_ga_tracking(params):
     language = params.get('language')
     headers={
         'User-Agent': user_agent,
-        'Accept-Language:': language
+        'Accept-Language': language
     }
     try:
         requests.get(utm_url, headers=headers)
