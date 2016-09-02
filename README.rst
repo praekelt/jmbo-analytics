@@ -54,3 +54,4 @@ You may have to add ``jmbo_analytics`` to your ``CELERY_IMPORTS``::
 You may also specify paths that will be excluded when tracking::
 
  GOOGLE_ANALYTICS_IGNORE_PATH = ['/health/', ]
+
